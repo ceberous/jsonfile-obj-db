@@ -23,6 +23,7 @@ var WC = {
 			xN = wConfig.path;
 			xP = process.argv[ 1 ].split( "/" ); xP.pop(); xP = xP.join("/") + "/" + xN + ".json";
 		}
+		if ( xP.indexOf(".json") === -1 ) { xP = xP + ".json"; }
 		WC._DB_NAME = xN;
 		WC._DB_PATH = xP;
 
