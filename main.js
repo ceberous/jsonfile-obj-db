@@ -38,6 +38,28 @@ var WC = {
 			WC.save(); 
 		}
 	},
-	save: function() { jsonfile.writeFileSync( WC._DB_PATH , WC.self ); }
+	save: function() { jsonfile.writeFileSync( WC._DB_PATH , WC.self ); },
+	edit: function( ...args ) {
+
+		// https://stackoverflow.com/questions/16533384/javascript-assign-value-to-element-in-nested-object-without-knowing-level
+
+		var x1 = args;
+		var wNV = x1.pop();
+
+		function recReplace( o , i ) {
+			var ii = i.shift();
+			if ( i.length == 0 ) {
+				o[ ii ] = wNV;
+			}
+			else {	
+				o[ ii ] = recReplace( o[ ii ] , i );
+			}
+			return o;
+		}
+
+		WC.self = recReplace( WC.self , x1 );
+		WC.save();
+
+	}
 };
 module.exports = WC;
