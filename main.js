@@ -4,10 +4,12 @@ var WC = {
 	_DB_PATH: null ,
 	self: {} ,
 	open: function( wConfig ) {
+
 		if ( !wConfig ) {
+			var xP = process.argv[ 1 ].split( "/" );
+			xP.pop();
 			WC._DB_NAME = "_id_" + Math.random().toString( 36 ).substr( 2 , 7 );
-			WC._DB_PATH = process.argv[ 1 ].split( "/" ); xP.pop(); xP = xP.join("/") + "/" + WC._DB_NAME + ".json";
-			WC._DB_PATH
+			WC._DB_PATH = xP.join("/") + "/" + WC._DB_NAME + ".json";
 			WC.save();
 			return;
 		}
@@ -49,9 +51,11 @@ var WC = {
 		function recReplace( o , i ) {
 			var ii = i.shift();
 			if ( i.length == 0 ) {
+				if ( !o[ ii ] ) { o[ ii ] = {}; }
 				o[ ii ] = wNV;
 			}
-			else {	
+			else {
+				if ( !o[ ii ] ) { o[ ii ] = {}; }
 				o[ ii ] = recReplace( o[ ii ] , i );
 			}
 			return o;
