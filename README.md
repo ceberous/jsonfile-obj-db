@@ -1,19 +1,18 @@
 # jsonfile-obj-db
 
 ```javascript
-var MyOBJ_DB = require( "jsonfile-obj-db" );
-MyOBJ_DB.open( "myCustomOBJName" );
-MyOBJ_DB[ "self" ][ "random" ] = {
-	some: "obj",
-	array: ["asfdsas" , 1 , 3]
-};
-console.log( MyOBJ_DB.self );
-MyOBJ_DB.save();
-```
+const JFODB = require( "./main.js" );
 
 
-```javascript
-var My_OBJ_DB_1 = require( "jsonfile-obj-db ");
-MY_OBJ_DB_1.open( "myCustomOBJName" );
-console.log( MyOBJ_DB.self );
+( ()=> {
+
+	const my_db_1 = new JFODB( "test1" );
+	const my_db_2 = new JFODB( "test2" );
+
+	my_db_1.self[ "1" ] = [ "1" , 2 , [ 3 , 5 ] ];
+	my_db_1.save();
+	my_db_2.self[ "2" ] = "test";
+	my_db_2.save();
+
+})();
 ```

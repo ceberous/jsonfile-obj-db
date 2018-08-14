@@ -1,6 +1,6 @@
 {
   "name": "jsonfile-obj-db",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "main.js",
   "scripts": {
@@ -10,6 +10,7 @@
     "type": "git",
     "url": "https://github.com/ceberous/jsonfile-obj-db"
   },
+  "url": "https://github.com/ceberous/jsonfile-obj-db",
   "author": "",
   "license": "ISC",
   "dependencies": {
