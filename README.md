@@ -1,8 +1,7 @@
 # jsonfile-obj-db
 
 ```javascript
-const JFODB = require( "./main.js" );
-
+const JFODB = require( "jsonfile-obj-db" );
 
 ( ()=> {
 
